@@ -6,9 +6,9 @@ import (
 )
 
 type User struct {
-	name  string
-	phone string
-	email string
+	Name  string
+	Phone string
+	Email string
 }
 
 func homePage(w http.ResponseWriter, r *http.Request) {
