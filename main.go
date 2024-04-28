@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"html/template"
 	"net/http"
 )
@@ -18,15 +17,17 @@ func homePage(w http.ResponseWriter, r *http.Request) {
 
 }
 func menuPage(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "menu page")
+	tmpl, _ := template.ParseFiles("templates/menu.html")
+	tmpl.Execute(w, nil)
 }
 func aboutPage(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "About page")
+	tmpl, _ := template.ParseFiles("templates/about.html")
+	tmpl.Execute(w, nil)
 }
 func contactsPage(w http.ResponseWriter, r *http.Request) {
 	userBob := User{"Bob", "+7-123-456-7890", "bob@gmail.com"}
-	fmt.Fprintf(w, "contact page")
-	fmt.Fprintf(w, "User data: %s %s %s", userBob.name, userBob.phone, userBob.email)
+	tmpl, _ := template.ParseFiles("templates/contact.html")
+	tmpl.Execute(w, userBob)
 }
 
 func handleRequest() {
