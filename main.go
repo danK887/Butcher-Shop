@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
+	"html/template"
 	"net/http"
-	//"html/template"
 )
 
 type User struct {
@@ -13,7 +13,9 @@ type User struct {
 }
 
 func homePage(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Welcome to the jungle!")
+	tmpl, _ := template.ParseFiles("templates/index.html")
+	tmpl.Execute(w, nil)
+
 }
 func menuPage(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "menu page")
