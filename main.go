@@ -2,6 +2,7 @@ package main
 
 import (
 	"html/template"
+	"log"
 	"net/http"
 )
 
@@ -31,11 +32,18 @@ func contactsPage(w http.ResponseWriter, r *http.Request) {
 }
 
 func handleRequest() {
-	http.HandleFunc("/", homePage)
-	http.HandleFunc("/menu/", menuPage)
-	http.HandleFunc("/about/", aboutPage)
-	http.HandleFunc("/contacts/", contactsPage)
-	http.ListenAndServe(":8080", nil)
+	mux := http.NewServeMux()
+	mux.HandleFunc("/", homePage)
+	mux.HandleFunc("/menu/", menuPage)
+	mux.HandleFunc("/about/", aboutPage)
+	mux.HandleFunc("/contacts/", contactsPage)
+
+	fileServer := http.FileServer(http.Dir("./static/"))
+
+	mux.Handle("/static/", http.StripPrefix("/static", fileServer))
+
+	err := http.ListenAndServe(":8080", mux)
+	log.Fatal(err)
 }
 
 func main() {
