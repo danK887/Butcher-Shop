@@ -30,6 +30,14 @@ func contactsPage(w http.ResponseWriter, r *http.Request) {
 	tmpl, _ := template.ParseFiles("templates/contact.html")
 	tmpl.Execute(w, userBob)
 }
+func chefsPage(w http.ResponseWriter, r *http.Request) {
+	tmpl, _ := template.ParseFiles("templates/stuff.html")
+	tmpl.Execute(w, nil)
+}
+func galleryPage(w http.ResponseWriter, r *http.Request) {
+	tmpl, _ := template.ParseFiles("templates/gallery.html")
+	tmpl.Execute(w, nil)
+}
 
 func handleRequest() {
 	mux := http.NewServeMux()
@@ -37,6 +45,8 @@ func handleRequest() {
 	mux.HandleFunc("/menu/", menuPage)
 	mux.HandleFunc("/about/", aboutPage)
 	mux.HandleFunc("/contacts/", contactsPage)
+	mux.HandleFunc("/chefs/", chefsPage)
+	mux.HandleFunc("/gallery/", galleryPage)
 
 	fileServer := http.FileServer(http.Dir("./static/"))
 
