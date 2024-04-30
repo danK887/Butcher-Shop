@@ -22,9 +22,9 @@ func aboutPage(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "About page")
 }
 func contactsPage(w http.ResponseWriter, r *http.Request) {
-	userBob := User{"Bob", "+7-123-456-7890", "bob@gmail.com"}
+	//userBob := User{"Bob", "+7-123-456-7890", "bob@gmail.com"}
 	fmt.Fprintf(w, "contact page")
-	fmt.Fprintf(w, "User data: %s %s %s", userBob.name, userBob.phone, userBob.email)
+	//fmt.Fprintf(w, "User data: %s %s %s", userBob.name, userBob.phone, userBob.email)
 }
 
 func handleRequest() {
