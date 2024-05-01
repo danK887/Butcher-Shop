@@ -163,13 +163,13 @@ button:focus{
 }
 
 .top-navbar .navbar{
-	padding: 15px 0px;
 	position: fixed;
 	width: 100%;
 	transition: height .3s ease-out, background .3s ease-out, box-shadow .3s ease-out;
 	-webkit-transform: translate3d(0, 0, 0);
 	transform: translate3d(0, 0, 0);
 	z-index: 100;
+    padding: 0px;
 }
 
 .top-navbar .navbar-light .navbar-nav .nav-link{
@@ -1327,8 +1327,9 @@ blockquote {
 /* оценка сайта */
 .rating-area {
 	overflow: hidden;
-	width: 265px;
+	width: 355px;
 	margin: 0 auto;
+    padding: 10px;
 }
 .rating-area:not(:checked) > input {
 	display: none;
@@ -1338,7 +1339,7 @@ blockquote {
 	width: 42px;
 	padding: 0;
 	cursor: pointer;
-	font-size: 32px;
+	font-size: 45px;
 	line-height: 32px;
 	color: lightgrey;
 	text-shadow: 1px 1px #bbb;
