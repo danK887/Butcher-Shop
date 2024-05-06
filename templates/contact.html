@@ -130,21 +130,23 @@
 	</div>
 	<!-- End Contact -->
 	
-    <script>
-        const textarea = document.getElementById('message');
-        const counter = document.querySelector('.counter');
-
-        textarea.addEventListener('input', function() {
-            const messageLength = this.value.length;
-            counter.textContent = messageLength + ' / 430';
-
-            if (messageLength > 430) {
-                counter.style.color = 'red';
-            } else {
-                counter.style.color = 'gray';
-            }
-        });
-    </script>
+	<script>
+		const textarea = document.getElementById('message');
+		const counter = document.querySelector('.counter');
+	
+		textarea.addEventListener('input', function() {
+			const messageLength = this.value.length;
+			counter.textContent = messageLength + ' / 430';
+	
+			if (messageLength > 429) {
+				counter.style.color = 'red';
+				// Обрезаем текст, если он превышает 430 символов
+				this.value = this.value.substring(0, 430);
+			} else {
+				counter.style.color = 'gray';
+			}
+		});
+	</script>
 </body>
 {{template "footer"}}
 {{end}}
