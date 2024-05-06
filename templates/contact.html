@@ -1,3 +1,5 @@
+{{define "contact"}}
+
 <!DOCTYPE html>
 <html lang="en"><!-- Basic -->
 <head>
@@ -70,7 +72,6 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<h1>Обратная связь</h1>
-					<h1> my info {{ . }}</h1>
 				</div>
 			</div>
 		</div>
@@ -78,7 +79,7 @@
 	<!-- End All Pages -->
 	
 	<!-- Start Contact -->
-	<div class="contact-box"></div>
+	<div class="small-box"></div>
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
@@ -93,148 +94,57 @@
 	</div>
 
 	<div class="contact-box">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="heading-title text-center">
-						<h2>Форма обратной связи</h2>
-						<p>Пожалуйста, оставьте обратную связь в форма ниже</p>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-12">
-					<form id="contactForm">
-						<div class="row">
-							<div class="col-md-12">
-								<div class="form-group">
-									<input type="text" class="form-control" id="name" name="name" placeholder="Ваше имя" required data-error="Пожалуйста, введите ваше имя">
-									<div class="help-block with-errors"></div>
-								</div>                                 
-							</div>
-							<div class="col-md-12">
-								<div class="form-group">
-									<input type="text" placeholder="Ваш Email" id="email" class="form-control" name="name" required data-error="Пожалуйста, введите ваш email">
-									<div class="help-block with-errors"></div>
-								</div> 
-							</div>
-							<div class="rating-area">
-								<input type="radio" id="star-5" name="rating" value="5">
-								<label for="star-5" title="Оценка «5»"></label>	
-								<input type="radio" id="star-4" name="rating" value="4">
-								<label for="star-4" title="Оценка «4»"></label>    
-								<input type="radio" id="star-3" name="rating" value="3">
-								<label for="star-3" title="Оценка «3»"></label>  
-								<input type="radio" id="star-2" name="rating" value="2">
-								<label for="star-2" title="Оценка «2»"></label>    
-								<input type="radio" id="star-1" name="rating" value="1">
-								<label for="star-1" title="Оценка «1»"></label>
-							</div>
-							<div class="col-md-12">
-								<div class="form-group"> 
-									<textarea class="form-control" id="message" placeholder="Ваше сообщение" rows="4" data-error="Пожалуйста, напишите ваше сообщение" required></textarea>
-									<div class="help-block with-errors"></div>
-								</div>
-								<div class="submit-button text-center">
-									<button class="btn btn-common" id="submit" type="submit">Отправить отзыв</button>
-									<div id="msgSubmit" class="h3 text-center hidden"></div> 
-									<div class="clearfix"></div> 
-								</div>
-							</div>
-						</div>            
-					</form>
-				</div>
+		<div>
+			<div class="heading-title text-center">
+				<h2>Форма обратной связи</h2>
+				<p>Пожалуйста, оставьте обратную связь в форма ниже</p>
 			</div>
 		</div>
+		<form action="/saveFeetback/" method="post">
+			<div class="form-group">
+				<input type="text" id="name" name="name" class="form-control" placeholder="Ваше имя" required data-error="Пожалуйста, введите ваше имя">
+					<div class="help-block with-errors"></div>
+			</div>
+			<input type="text" placeholder="Ваш Email" id="email" class="form-control" name="email" required data-error="Пожалуйста, введите ваш email">
+					<div class="help-block with-errors"></div>
+			<div class="rating-area" id="site-rating">
+				<input type="radio" id="star-5" name="siterating" value="5">
+				<label for="star-5" title="Оценка «5»"></label>	
+				<input type="radio" id="star-4" name="siterating" value="4">
+				<label for="star-4" title="Оценка «4»"></label>    
+				<input type="radio" id="star-3" name="siterating" value="3">
+				<label for="star-3" title="Оценка «3»"></label>  
+				<input type="radio" id="star-2" name="siterating" value="2">
+				<label for="star-2" title="Оценка «2»"></label>    
+				<input type="radio" id="star-1" name="siterating" value="1">
+				<label for="star-1" title="Оценка «1»"></label>
+				<div class="help-block with-errors"></div>
+			</div>
+			<textarea class="form-control" name="content" id="message" placeholder="Ваше сообщение" rows="4" data-error="Пожалуйста, напишите ваше сообщение" required></textarea>
+			<div class="counter">0 / 430</div>
+				<div class="help-block with-errors"></div>
+			<div class="submit-button text-center">
+				<button class="btn btn-common" id="submit" type="submit">Отправить отзыв</button>
+			</div>
+		</form>
 	</div>
 	<!-- End Contact -->
 	
-	<!-- Start Contact info -->
-	<div class="contact-imfo-box">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-4">
-					<i class="fa fa-volume-control-phone"></i>
-					<div class="overflow-hidden">
-						<h4>Телефон для связи</h4>
-						<p class="lead">
-							+01 123-456-4590
-						</p>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<i class="fa fa-envelope"></i>
-					<div class="overflow-hidden">
-						<h4>Жалобы и обращения</h4>
-						<p class="lead">
-							yourmail@gmail.com
-						</p>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<i class="fa fa-map-marker"></i>
-					<div class="overflow-hidden">
-						<h4>Адрес</h4>
-						<p class="lead">
-							800, Lorem Street, US
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- End Contact info -->
-	
-	<!-- Start Footer -->
-	<footer class="footer-area bg-f">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3 col-md-6">
-					<h3>О нас</h3>
-					<p>Integer cursus scelerisque ipsum id efficitur. Donec a dui fringilla, gravida lorem ac, semper magna. Aenean rhoncus ac lectus a interdum. Vivamus semper posuere dui, at ornare turpis ultrices sit amet. Nulla cursus lorem ut nisi porta, ac eleifend arcu ultrices.</p>
-				</div>
-				<div class="col-lg-3 col-md-6">
-					<h3>Часы работы</h3>
-					<p><span class="text-color">Monday: </span>Closed</p>
-					<p><span class="text-color">Tue-Wed :</span> 9:Am - 10PM</p>
-					<p><span class="text-color">Thu-Fri :</span> 9:Am - 10PM</p>
-					<p><span class="text-color">Sat-Sun :</span> 5:PM - 10PM</p>
-				</div>
-				<div class="col-lg-3 col-md-6">
-					<h3>Контакты</h3>
-					<p class="lead">Ipsum Street, Lorem Tower, MO, Columbia, 508000</p>
-					<p class="lead">+01 2000 800 9999</p>
-					<p> info@admin.com</p>
-				</div>
-			</div>
-		</div>
-		
-		<div class="copyright">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">
-						<p class="company-name">Сайт сделан в качестве учебных целей. &copy; 2024 <a href="#">KoMeat - Butcher shop
-					</div>
-				</div>
-			</div>
-		</div>
-		
-	</footer>
-	<!-- End Footer -->
-	
-	<a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
+    <script>
+        const textarea = document.getElementById('message');
+        const counter = document.querySelector('.counter');
 
-	<!-- ALL JS FILES -->
-	<script src="/static/js/jquery-3.2.1.min.js"></script>
-	<script src="/static/js/popper.min.js"></script>
-	<script src="/static/js/bootstrap.min.js"></script>
-    <!-- ALL PLUGINS -->
-	<script src="/static/js/jquery.superslides.min.js"></script>
-	<script src="/static/js/images-loded.min.js"></script>
-	<script src="/static/js/isotope.min.js"></script>
-	<script src="/static/js/baguetteBox.min.js"></script>
-	<script src="/static/js/form-validator.min.js"></script>
-    <script src="/static/js/contact-form-script.js"></script>
-    <script src="/static/js/custom.js"></script>
+        textarea.addEventListener('input', function() {
+            const messageLength = this.value.length;
+            counter.textContent = messageLength + ' / 430';
+
+            if (messageLength > 430) {
+                counter.style.color = 'red';
+            } else {
+                counter.style.color = 'gray';
+            }
+        });
+    </script>
 </body>
-</html>
+{{template "footer"}}
+{{end}}

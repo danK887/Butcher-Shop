@@ -1293,9 +1293,15 @@ blockquote {
     background: #cfa671;
 }
 
+.small-box{
+    padding: 40px 0px;
+}
 
 .contact-box{
-	padding: 70px 0px;
+	padding: 40px 0px 70px 0px;
+    max-width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .map-full {
@@ -1326,10 +1332,15 @@ blockquote {
  
 /* оценка сайта */
 .rating-area {
+    display: flex;
 	overflow: hidden;
 	width: 355px;
 	margin: 0 auto;
     padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    transform: scaleX(-1);
 }
 .rating-area:not(:checked) > input {
 	display: none;
@@ -1366,24 +1377,4 @@ blockquote {
 .rate-area > label:active {
 	position: relative;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
